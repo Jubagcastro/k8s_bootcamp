@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment1
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      name: meupod2
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: site
+        image: kubedevio/nginx-color:green
+        ports:
+         - containerPort: 80  
+  replicas: 2 
+  
