@@ -15,23 +15,10 @@ spec:
       name: nginx-2
       labels: 
         app: myapp
+        type: front-end
     spec:
       containers:
       - name: nginx
         image: nginx    
         ports:
           - containerPort: 80
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: jb-svc
-spec:
-  selector:
-    app: myapp
-  ports:
-    - port: 8080
-      targetPort: 80
-      nodePort: 30000
-  type: NodePort

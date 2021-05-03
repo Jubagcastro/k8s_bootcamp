@@ -3,10 +3,11 @@ kind: Service
 metadata:
   name: jb-svc
 spec:
-  selector:
-    app: myapp
-  ports:
-    - port: 8080
-      targetPort: 80
-      nodePort: 30000
   type: NodePort
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 30008
+  selector:
+    app: myapp   
+    type: front-end   
